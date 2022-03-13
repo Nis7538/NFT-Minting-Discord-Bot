@@ -50,17 +50,10 @@ export const mintNFT = async (url, name, description) => {
         const txHash = await signer.sendUncheckedTransaction(
             transactionParameters
         );
-        // const txHash = await window.ethereum.request({
-        //     method: 'eth_sendTransaction',
-        //     params: [transactionParameters],
-        // });
-        // return {
-        //     success: true,
-        //     status:
-        //         'Check out your transaction on Etherscan: https://ropsten.etherscan.io/tx/' +
-        //         txHash,
-        // };
-        console.log(txHash);
+        return {
+            success: false,
+            status: 'Transaction Hash: ' + txHash,
+        };
     } catch (error) {
         return {
             success: false,

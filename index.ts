@@ -23,8 +23,9 @@ client.on('messageCreate', message => {
         console.log('Enter valid parameters');
     }
     if (message.attachments.size != 0) {
-        attachments.forEach(attachment => {
-            mintNFT(attachment.url, name, description);
+        attachments.forEach(async attachment => {
+            let res = await mintNFT(attachment.url, name, description);
+            message.reply(res.status);
         });
     }
 });
